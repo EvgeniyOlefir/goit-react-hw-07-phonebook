@@ -1,0 +1,18 @@
+{
+  "contacts": [
+    {
+      "text": {
+        "name": "Evgeniy Olefir",
+        "number": "234567"
+      },
+      "id": 1
+    },
+    {
+      "text": {
+        "name": "Tdutybq",
+        "number": "3456"
+      },
+      "id": 2
+    }
+  ]
+}

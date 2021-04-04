@@ -3,7 +3,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import actions from './actions';
 
 const contacts = createReducer([], {
-  [actions.addContact]: (state, { payload }) => [...state, payload],
+  addContactSucces: (state, { payload }) => [...state, payload],
   [actions.deleteContact]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
