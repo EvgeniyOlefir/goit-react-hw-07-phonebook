@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import ContactListItem from './ContactListItem';
 import { connect } from 'react-redux';
-import actions from '../../redux/actions';
+import { deleteContact } from '../../redux/actions';
 import s from './ContactList.module.css';
 
 const ContactList = ({ contacts, handleDeleteContact }) => {
@@ -33,7 +33,7 @@ const mapStateToProps = ({ phonebook: { contacts, filter } }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleDeleteContact: id => dispatch(actions.deleteContact(id)),
+  handleDeleteContact: id => dispatch(deleteContact(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

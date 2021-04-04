@@ -10,18 +10,13 @@ import {
 } from 'redux-persist';
 import contactReducer from './phonebook-reducer';
 
-const myMiddleware = store => next => action => {
-  console.log('моя прослойка!', action);
-  next(action);
-};
-
 const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  myMiddleware,
+
   logger,
 ];
 

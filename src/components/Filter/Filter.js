@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
-import actions from '../../redux/actions';
+import * as actions from '../../redux/actions';
 import s from './Filter.module.css';
 
 const ContactFilter = ({ value, onInputChange }) => {

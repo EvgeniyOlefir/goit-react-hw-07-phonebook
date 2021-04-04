@@ -1,17 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 
-const addContactRequest = createAction('contacts/addContactRequest');
-const addContactSucces = createAction('contacts/addContactSucces');
-const addContactError = createAction('contacts/addContactError');
-const deleteContact = createAction('contacts/Delete');
-
-const changeFilter = createAction('contacts/Filter');
-
-// eslint-disable-next-line
-export default {
-  deleteContact,
-  changeFilter,
-  addContactRequest,
-  addContactSucces,
-  addContactError,
-};
+export const addContactRequest = createAction('contacts/addContactRequest');
+export const addContactSucces = createAction('contacts/addContactSucces');
+export const addContactError = createAction('contacts/addContactError');
+export const deleteContact = createAction('contacts/Delete');
+export const changeFilter = createAction('contacts/Filter');
