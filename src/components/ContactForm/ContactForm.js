@@ -33,36 +33,38 @@ class ContactForm extends Component {
     const { name, number } = this.state;
 
     return (
-      <form className={s.contactForm} onSubmit={this.handleSubmit}>
-        <label className={s.contactLabel} htmlFor={this.nameInputId}>
-          Name
-        </label>
-        <input
-          className={s.contactInput}
-          type="text"
-          name="name"
-          id={this.nameInputId}
-          value={name}
-          onChange={this.handleChange}
-        />
+      <>
+        <form className={s.contactForm} onSubmit={this.handleSubmit}>
+          <label className={s.contactLabel} htmlFor={this.nameInputId}>
+            Name
+          </label>
+          <input
+            className={s.contactInput}
+            type="text"
+            name="name"
+            id={this.nameInputId}
+            value={name}
+            onChange={this.handleChange}
+          />
 
-        <label className={s.contactLabel} htmlFor={this.numberInputId}>
-          Number
-        </label>
-        <input
-          className={s.contactInput}
-          type="text"
-          name="number"
-          id={this.numberInputId}
-          value={number}
-          onChange={this.handleChange}
-          // required
-        />
+          <label className={s.contactLabel} htmlFor={this.numberInputId}>
+            Number
+          </label>
+          <input
+            className={s.contactInput}
+            type="text"
+            name="number"
+            id={this.numberInputId}
+            value={number}
+            onChange={this.handleChange}
+            // required
+          />
 
-        <button className={s.buttonAdd} type="submit">
-          Add contact
-        </button>
-      </form>
+          <button className={s.buttonAdd} type="submit">
+            Add contact
+          </button>
+        </form>
+      </>
     );
   }
 }
