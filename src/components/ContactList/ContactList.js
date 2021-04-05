@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import ContactListItem from './ContactListItem';
 import { connect } from 'react-redux';
-import { deleteContact } from '../../redux/actions';
+import deleteContact from '../../redux/operations';
 import s from './ContactList.module.css';
 
 const ContactList = ({ contacts, handleDeleteContact }) => {
