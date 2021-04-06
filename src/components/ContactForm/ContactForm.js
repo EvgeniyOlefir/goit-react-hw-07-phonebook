@@ -62,7 +62,7 @@ class ContactForm extends Component {
             className={s.contactInput}
             type="text"
             name="name"
-            id={name}
+            id="name"
             value={name}
             onChange={this.handleChange}
           />
@@ -74,7 +74,7 @@ class ContactForm extends Component {
             className={s.contactInput}
             type="text"
             name="number"
-            id={number}
+            id="number"
             value={number}
             onChange={this.handleChange}
             // required
