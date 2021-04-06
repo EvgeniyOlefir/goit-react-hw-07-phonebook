@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-// import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { connect } from 'react-redux';
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
 import Filter from './components/Filter/index';
+import operations from './redux/operations';
+import selectors from './redux/selectors';
 import s from './App.module.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchContacts();
+  }
+
   render() {
     return (
       <div className={s.container}>
@@ -21,4 +26,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  contacts: selectors.getAllContacts(state),
+  isLoadingContacts: selectors.getLoading(state),
+  error: selectors.getError(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchContacts: () => dispatch(operations.fetchContacts()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

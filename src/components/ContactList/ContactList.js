@@ -5,7 +5,7 @@ import selectors from '../../redux/selectors';
 import PropTypes from 'prop-types';
 import s from './ContactList.module.css';
 
-const ContactList = ({ contacts, handleDeleteContact }) => {
+const ContactList = ({ contacts, onDeleteContact }) => {
   return (
     <>
       <ul className={s.contactList}>
@@ -15,7 +15,7 @@ const ContactList = ({ contacts, handleDeleteContact }) => {
             id={id}
             name={name}
             number={number}
-            onDeleteContact={handleDeleteContact}
+            onDeleteContact={onDeleteContact}
           />
         ))}
       </ul>
@@ -24,7 +24,7 @@ const ContactList = ({ contacts, handleDeleteContact }) => {
 };
 
 ContactList.propTypes = {
-  onRemoveContact: PropTypes.func,
+  onDeleteContact: PropTypes.func,
   contacts: PropTypes.arrayOf(PropTypes.object),
 };
 
@@ -33,7 +33,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onRemoveContact: id => dispatch(operations.deleteContact(id)),
+  onDeleteContact: id => dispatch(operations.deleteContact(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

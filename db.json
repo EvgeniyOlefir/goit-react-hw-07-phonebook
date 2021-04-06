@@ -1,38 +1,23 @@
 {
   "contacts": [
     {
-      "name": "hjnfdkd",
-      "number": "3874957362826465",
-      "id": 1
-    },
-    {
-      "name": "Tdutybq",
-      "number": "3874957362826465",
-      "id": 2
-    },
-    {
-      "name": "Євген",
+      "name": "Evgeniy",
       "number": "3874957362826465",
       "id": 3
     },
     {
-      "name": "Evgeniy Olefir",
-      "number": "234567",
+      "name": "Tdutybq",
+      "number": "3567",
       "id": 4
     },
     {
-      "name": "Evgeniy",
-      "number": "87493874650",
-      "id": 5
+      "name": "hjnfdkd",
+      "number": "3874957362826465",
+      "id": 6
     },
     {
       "name": "evg",
       "number": "7648763920",
-      "id": 6
-    },
-    {
-      "name": "abr walg",
-      "number": "0503424543",
       "id": 7
     }
   ]

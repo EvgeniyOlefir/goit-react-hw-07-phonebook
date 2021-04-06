@@ -2,6 +2,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
 import * as actions from '../../redux/actions';
+import selectors from '../../redux/selectors';
 import s from './Filter.module.css';
 
 const ContactFilter = ({ value, onInputChange }) => {
@@ -23,7 +24,8 @@ const ContactFilter = ({ value, onInputChange }) => {
 };
 
 const mapStateToProps = state => ({
-  value: state.phonebook.filter,
+  value: selectors.getFilter(state),
+  contacts: selectors.getAllContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({

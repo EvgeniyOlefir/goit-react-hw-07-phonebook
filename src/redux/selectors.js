@@ -10,13 +10,13 @@ const getError = state => state.phonebook.error;
 
 //Без мемоизации
 // const getVisibleContacts = state => {
-//     const contacts = getAllContacts(state);
-//     const filter = getFilter(state);
-//     const normalizedFilter = filter.toLowerCase();
+//   const contacts = getAllContacts(state);
+//   const filter = getFilter(state);
+//   const normalizedFilter = filter.toLowerCase();
 
-//     return contacts.filter(({ name }) =>
-//         name.toLowerCase().includes(normalizedFilter),
-//     );
+//   return contacts.filter(({ name }) =>
+//     name.toLowerCase().includes(normalizedFilter),
+//   );
 // };
 
 //С мемоизацией
