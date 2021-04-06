@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
@@ -15,7 +15,7 @@ class App extends Component {
         <h2 className={s.secondaryTitle}>Contacts</h2>
         <Filter />
         <ContactList />
-        <ToastContainer autoClose={3000} />
+        {/* <ToastContainer autoClose={3000} /> */}
       </div>
     );
   }

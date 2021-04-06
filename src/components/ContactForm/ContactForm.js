@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
 import operations from '../../redux/operations';
+import selectors from '../../redux/selectors';
+import PropTypes from 'prop-types';
 import s from './ContactForm.module.css';
 
 class ContactForm extends Component {
@@ -10,23 +11,42 @@ class ContactForm extends Component {
     number: '',
   };
 
-  nameInputId = uuidv4();
-  numberInputId = uuidv4();
+  static propTypes = {
+    contacts: PropTypes.arrayOf(PropTypes.object),
+    onSubmit: PropTypes.func,
+  };
 
   handleChange = e => {
-    const { name, value } = e.currentTarget;
+    const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
   handleSubmit = e => {
+    const { name, number } = this.state;
     e.preventDefault();
 
-    this.props.onSubmit(this.state);
-    this.reset();
-  };
+    if (name === '') {
+      alert('Enter contact name, please!');
+      return;
+    }
+    if (number === '') {
+      alert('Enter concact phone, please!');
+      return;
+    }
+    if (
+      this.props.contacts.find(
+        item => item.name.toLowerCase() === name.toLowerCase(),
+      )
+    ) {
+      alert('Contact already exists!');
+      return;
+    }
 
-  reset = () => {
-    this.setState({ name: '', number: '' });
+    this.props.onSubmit(name, number);
+    this.setState({
+      name: '',
+      number: '',
+    });
   };
 
   render() {
@@ -35,26 +55,26 @@ class ContactForm extends Component {
     return (
       <>
         <form className={s.contactForm} onSubmit={this.handleSubmit}>
-          <label className={s.contactLabel} htmlFor={this.nameInputId}>
+          <label className={s.contactLabel} htmlFor={name}>
             Name
           </label>
           <input
             className={s.contactInput}
             type="text"
             name="name"
-            id={this.nameInputId}
+            id={name}
             value={name}
             onChange={this.handleChange}
           />
 
-          <label className={s.contactLabel} htmlFor={this.numberInputId}>
+          <label className={s.contactLabel} htmlFor={number}>
             Number
           </label>
           <input
             className={s.contactInput}
             type="text"
             name="number"
-            id={this.numberInputId}
+            id={number}
             value={number}
             onChange={this.handleChange}
             // required
@@ -70,7 +90,7 @@ class ContactForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  contacts: state.phonebook.contacts,
+  contacts: selectors.getAllContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({

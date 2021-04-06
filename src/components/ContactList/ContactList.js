@@ -1,39 +1,39 @@
-import { v4 as uuidv4 } from 'uuid';
 import ContactListItem from './ContactListItem';
 import { connect } from 'react-redux';
-import deleteContact from '../../redux/operations';
+import operations from '../../redux/operations';
+import selectors from '../../redux/selectors';
+import PropTypes from 'prop-types';
 import s from './ContactList.module.css';
 
 const ContactList = ({ contacts, handleDeleteContact }) => {
   return (
-    <ul className={s.contactList}>
-      {contacts.map(({ id, name, number }) => (
-        <ContactListItem
-          key={uuidv4()}
-          id={id}
-          name={name}
-          number={number}
-          onDeleteContact={handleDeleteContact}
-        />
-      ))}
-    </ul>
+    <>
+      <ul className={s.contactList}>
+        {contacts.map(({ id, name, number }) => (
+          <ContactListItem
+            key={id}
+            id={id}
+            name={name}
+            number={number}
+            onDeleteContact={handleDeleteContact}
+          />
+        ))}
+      </ul>
+    </>
   );
 };
 
-const getVisibleContacts = (allContacts, filter) => {
-  const normalizedFilter = filter.toLowerCase();
-
-  return allContacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedFilter),
-  );
+ContactList.propTypes = {
+  onRemoveContact: PropTypes.func,
+  contacts: PropTypes.arrayOf(PropTypes.object),
 };
 
-const mapStateToProps = ({ phonebook: { contacts, filter } }) => ({
-  contacts: getVisibleContacts(contacts, filter),
+const mapStateToProps = state => ({
+  contacts: selectors.getVisibleContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleDeleteContact: id => dispatch(deleteContact(id)),
+  onRemoveContact: id => dispatch(operations.deleteContact(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
