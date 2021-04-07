@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import phoneBookReducer from './phonebook-reducer';
+import phoneBookReducer from './reducer';
 
 const middleware = [...getDefaultMiddleware(), logger];
 

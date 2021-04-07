@@ -13,6 +13,7 @@ const ContactFilter = ({ value, onInputChange }) => {
         Find contact by name
       </label>
       <input
+        className={s.filterInput}
         id={id}
         type="text"
         name="filter"

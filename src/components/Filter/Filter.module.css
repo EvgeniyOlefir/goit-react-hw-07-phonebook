@@ -1,7 +1,9 @@
 .filter {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-bottom: 50px;
+  align-items: center;
+  margin-bottom: 30px;
 }
 .filterLabel {
   font-weight: bold;
@@ -9,5 +11,6 @@
 }
 
 .filterInput {
-  min-width: 540px;
+  width: 200px;
+  margin-bottom: 20px;
 }

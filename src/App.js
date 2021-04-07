@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ContactForm from './components/ContactForm';
+import { ToastContainer } from 'react-toastify';
 import ContactList from './components/ContactList';
 import Filter from './components/Filter/index';
 import operations from './redux/operations';
@@ -17,10 +18,11 @@ class App extends Component {
       <div className={s.container}>
         <h1 className={s.mainTitle}>Phonebook</h1>
         <ContactForm />
+
         <h2 className={s.secondaryTitle}>Contacts</h2>
+
         <Filter />
         <ContactList />
-        {/* <ToastContainer autoClose={3000} /> */}
       </div>
     );
   }
