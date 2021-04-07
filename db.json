@@ -1,3 +1,14 @@
 {
-  "contacts": []
+  "contacts": [
+    {
+      "name": "Evgeniy Olefir",
+      "number": "234567",
+      "id": 1
+    },
+    {
+      "name": "Євген",
+      "number": "3874957362826465",
+      "id": 2
+    }
+  ]
 }

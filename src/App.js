@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ContactForm from './components/ContactForm';
-import { ToastContainer } from 'react-toastify';
 import ContactList from './components/ContactList';
 import Filter from './components/Filter/index';
 import operations from './redux/operations';

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import operations from '../../redux/operations';
 import selectors from '../../redux/selectors';
-import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 
 import s from './ContactForm.module.css';
